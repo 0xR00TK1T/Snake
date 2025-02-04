@@ -12,14 +12,13 @@ class Game:
 
     def show_score(self):
         font = pygame.font.SysFont('Comic Sans', 20)
-        score_surface = font.render(f'Score : {self.score}', True, WHITE)
-        self.window.window.blit(score_surface, score_surface.get_rect(center=(window_x // 2, 10)))
+        score_text = font.render(f'Score : {self.score}', True, WHITE)
+        self.window.window.blit(score_text, score_text.get_rect(center=(window_x // 2, 10)))
 
     def game_over(self):
         font = pygame.font.SysFont('Comic Sans', 50)
         self.window.fill(BLACK)
 
-        #game_over_surface = font.render('Game Over!', True, RED)
         score_text = font.render(f'Your Score is : {self.score}', True, WHITE)
         
         self.window.window.blit(score_text, score_text.get_rect(midtop=(window_x / 2, window_y / 4)))
@@ -30,15 +29,13 @@ class Game:
         self.snake.reset()
         self.score = 0
 
-        #pygame.quit()
-        #quit()
-
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT: pygame.quit()
             if event.type == pygame.KEYDOWN: self.snake.change_direction(event.key)
 
     def update(self):
+        self.handle_events()
         self.snake.move()
 
         if self.snake.check_collision(self.fruit.position):

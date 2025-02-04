@@ -7,7 +7,6 @@ def main():
     game = Game()
     
     while True:
-        game.handle_events()
         game.update()
         fps.tick(15)
 
