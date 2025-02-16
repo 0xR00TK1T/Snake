@@ -1,7 +1,9 @@
 import pygame
 
+# Window values
 window_x, window_y = 720, 580
 
+# Colors
 BLACK = pygame.Color(0, 0, 0)
 WHITE = pygame.Color(255, 255, 255)
 RED = pygame.Color(255, 0, 0)
